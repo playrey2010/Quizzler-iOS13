@@ -12,8 +12,9 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var progressBar: UIProgressView!
-    @IBOutlet weak var trueButton: UIButton!
-    @IBOutlet weak var falseButton: UIButton!
+    @IBOutlet weak var choiceOne: UIButton!
+    @IBOutlet weak var choiceTwo: UIButton!
+    @IBOutlet weak var choiceThree: UIButton!
     @IBOutlet weak var scoreLabel: UILabel!
     
     var quizBrain = QuizBrain()
@@ -46,10 +47,17 @@ class ViewController: UIViewController {
         questionLabel.text = quizBrain.getQuestionText()
         progressBar.progress = quizBrain.getProgress()
         
+        // update Choice Buttons UI
+        choiceOne.setTitle(quizBrain.getChoiceOne(), for: .normal)
+        choiceTwo.setTitle(quizBrain.getChoiceTwo(), for: .normal)
+        choiceThree.setTitle(quizBrain.getChoiceThree(), for: .normal)
+        
         scoreLabel.text = "Score: \(quizBrain.getScore())"
         // reset colors
-        trueButton.backgroundColor = UIColor.clear
-        falseButton.backgroundColor = UIColor.clear
+        // change from trueButton/falseButto to corresponding choiceOne, choiceTwo, etc.
+        choiceOne.backgroundColor = UIColor.clear
+        choiceTwo.backgroundColor = UIColor.clear
+        choiceThree.backgroundColor = UIColor.clear
         
 
     }
